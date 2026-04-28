@@ -6,7 +6,6 @@ pkgbase = radxa-aic8800-usb-dkms
 	arch = any
 	license = custom
 	depends = dkms
-	provides = aic8800-usb-dkms
 	source = aic8800-firmware_5.0+git20260123.5f7be68d-4_all.deb::https://github.com/radxa-pkg/aic8800/releases/download/5.0%2Bgit20260123.5f7be68d-4/aic8800-firmware_5.0%2Bgit20260123.5f7be68d-4_all.deb
 	source = aic8800-usb-dkms_5.0+git20260123.5f7be68d-4_all.deb::https://github.com/radxa-pkg/aic8800/releases/download/5.0%2Bgit20260123.5f7be68d-4/aic8800-usb-dkms_5.0%2Bgit20260123.5f7be68d-4_all.deb
 	sha256sums = 7f242b1cd65fb4961758b8cb5c6765a1d124ca8ccab38df802c3e01801e3e6a4

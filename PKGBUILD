@@ -12,7 +12,6 @@ arch=('any')
 url="https://github.com/radxa-pkg/aic8800"
 license=('custom')
 depends=('dkms')
-provides=('aic8800-usb-dkms')
 source=(
   "aic8800-firmware_${_debver}_all.deb::${_release_url}/aic8800-firmware_${_urlver}_all.deb"
   "aic8800-usb-dkms_${_debver}_all.deb::${_release_url}/aic8800-usb-dkms_${_urlver}_all.deb"
