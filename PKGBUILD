@@ -2,7 +2,7 @@
 
 pkgname=radxa-aic8800-usb-dkms
 pkgver=5.0+git20260123.5f7be68d
-pkgrel=1
+pkgrel=2
 _upstream_pkgrel=5
 _debver="${pkgver}-${_upstream_pkgrel}"
 _urlver="5.0+git20260123.5f7be68d-${_upstream_pkgrel}"
@@ -15,9 +15,13 @@ depends=('dkms')
 source=(
   "aic8800-firmware_${_debver}_all.deb::${_release_url}/aic8800-firmware_${_urlver}_all.deb"
   "aic8800-usb-dkms_${_debver}_all.deb::${_release_url}/aic8800-usb-dkms_${_urlver}_all.deb"
+  'dkms.conf'
+  'dkms.mk'
 )
 sha256sums=('14f200ef0ed4be63a52b05028b2d6e28701ccbf9404a60afc4f519119ee6605d'
-            'a6d59735e3865cd896574fd85c712be0c06c7805e79d127ef7e130f27099cba8')
+            'a6d59735e3865cd896574fd85c712be0c06c7805e79d127ef7e130f27099cba8'
+            '7f9cb1cc249bb26e0c8a17bfa2d1fc191975248300bee7a1538b1fe8032a93ed'
+            'e80072ef42e17a6563409459105be57f70aa357f7c30158fc85298bad767bdbb')
 
 _extract_deb() {
   local deb="$1"
@@ -34,17 +38,20 @@ package() {
   local extract_dir="${srcdir}/deb-root"
   local fw_root="${extract_dir}/firmware/root"
   local usb_root="${extract_dir}/usb/root/usr/src/aic8800-usb-${_debver}"
+  local dkms_dir="${pkgdir}/usr/src/aic8800-usb-${pkgver}"
 
   rm -rf "${extract_dir}"
   _extract_deb "aic8800-firmware_${_debver}_all.deb" "${extract_dir}/firmware"
   _extract_deb "aic8800-usb-dkms_${_debver}_all.deb" "${extract_dir}/usb"
 
   install -d "${pkgdir}/usr/src"
-  cp -a "${usb_root}" "${pkgdir}/usr/src/aic8800-usb-${pkgver}"
+  cp -a "${usb_root}" "${dkms_dir}"
+  install -Dm644 "${srcdir}/dkms.conf" "${dkms_dir}/dkms.conf"
+  install -Dm644 "${srcdir}/dkms.mk" "${dkms_dir}/dkms.mk"
 
   sed -i \
     -e "s|PACKAGE_VERSION=.*|PACKAGE_VERSION=\"${pkgver}\"|" \
-    "${pkgdir}/usr/src/aic8800-usb-${pkgver}/dkms.conf"
+    "${dkms_dir}/dkms.conf"
 
   find "${pkgdir}/usr/src" -type f \( \
     -name '*.o' -o \

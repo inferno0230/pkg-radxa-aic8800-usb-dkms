@@ -1,14 +1,18 @@
 pkgbase = radxa-aic8800-usb-dkms
 	pkgdesc = DKMS USB driver and firmware for AIC8800 Wi-Fi devices from Radxa
 	pkgver = 5.0+git20260123.5f7be68d
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/radxa-pkg/aic8800
 	arch = any
 	license = custom
 	depends = dkms
 	source = aic8800-firmware_5.0+git20260123.5f7be68d-5_all.deb::https://github.com/radxa-pkg/aic8800/releases/download/5.0+git20260123.5f7be68d-5/aic8800-firmware_5.0+git20260123.5f7be68d-5_all.deb
 	source = aic8800-usb-dkms_5.0+git20260123.5f7be68d-5_all.deb::https://github.com/radxa-pkg/aic8800/releases/download/5.0+git20260123.5f7be68d-5/aic8800-usb-dkms_5.0+git20260123.5f7be68d-5_all.deb
+	source = dkms.conf
+	source = dkms.mk
 	sha256sums = 14f200ef0ed4be63a52b05028b2d6e28701ccbf9404a60afc4f519119ee6605d
 	sha256sums = a6d59735e3865cd896574fd85c712be0c06c7805e79d127ef7e130f27099cba8
+	sha256sums = 7f9cb1cc249bb26e0c8a17bfa2d1fc191975248300bee7a1538b1fe8032a93ed
+	sha256sums = e80072ef42e17a6563409459105be57f70aa357f7c30158fc85298bad767bdbb
 
 pkgname = radxa-aic8800-usb-dkms
