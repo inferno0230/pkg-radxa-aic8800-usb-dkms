@@ -3,9 +3,9 @@
 pkgname=radxa-aic8800-usb-dkms
 pkgver=5.0+git20260123.5f7be68d
 pkgrel=1
-_upstream_pkgrel=4
+_upstream_pkgrel=5
 _debver="${pkgver}-${_upstream_pkgrel}"
-_urlver="5.0%2Bgit20260123.5f7be68d-${_upstream_pkgrel}"
+_urlver="5.0+git20260123.5f7be68d-${_upstream_pkgrel}"
 _release_url="https://github.com/radxa-pkg/aic8800/releases/download/${_urlver}"
 pkgdesc="DKMS USB driver and firmware for AIC8800 Wi-Fi devices from Radxa"
 arch=('any')
@@ -16,8 +16,8 @@ source=(
   "aic8800-firmware_${_debver}_all.deb::${_release_url}/aic8800-firmware_${_urlver}_all.deb"
   "aic8800-usb-dkms_${_debver}_all.deb::${_release_url}/aic8800-usb-dkms_${_urlver}_all.deb"
 )
-sha256sums=('7f242b1cd65fb4961758b8cb5c6765a1d124ca8ccab38df802c3e01801e3e6a4'
-            '52fd66ec68d746987667f5ae2ecc5f12ad40177d28631ff50704e93d49a39d74')
+sha256sums=('14f200ef0ed4be63a52b05028b2d6e28701ccbf9404a60afc4f519119ee6605d'
+            'a6d59735e3865cd896574fd85c712be0c06c7805e79d127ef7e130f27099cba8')
 
 _extract_deb() {
   local deb="$1"
